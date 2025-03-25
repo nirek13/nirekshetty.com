@@ -1,15 +1,2 @@
-# website
-
-[![Website Preview](assets/img/preview.jpg)](https://anthonytedja.com)
-
-
-
-
-## Built With
-
-- Bootstrap Studio
-- Visual Studio Code
-- Codepen
-- 
-z
- 
+## My portfolio website
+theres lotta easter eggs so have fun tryna find em i was pretty creative with hidin em so if u find all 7 id be  impressed
