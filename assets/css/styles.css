@@ -1129,3 +1129,48 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 1rem;
 }
 
+
+/* Project Modal Styles */
+.modal-content {
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--bs-border-color);
+  padding: 1.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--bs-border-color);
+  padding: 1rem 1.5rem;
+}
+
+.portfolio-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Dark mode compatibility */
+[data-bs-theme="dark"] .modal-content {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+[data-bs-theme="dark"] .modal-header,
+[data-bs-theme="dark"] .modal-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}

@@ -100,14 +100,17 @@
             </div>
         </div>
         <div class="row g-0" id="projects-row">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true"><a class="portfolio-item links" href="https://voyager-o.ca">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>Voyager-O.&nbsp;<span style="color: var(--bs-yellow);">NASA Space Apps Global Nominee</span></h2>
-                        <p>Bringing The Stars Of The Universe To You</p>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true">
+                <div class="portfolio-item links" data-bs-toggle="modal" data-bs-target="#voyager-modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h2>Voyager-O.&nbsp;<span style="color: var(--bs-yellow);">NASA Space Apps Global Nominee</span></h2>
+                            <p>Bringing The Stars Of The Universe To You</p>
+                        </div>
                     </div>
-                </div><img class="img-fluid" src="assets/Projects/Contractual.svg" alt="Voyager-O">
-            </a></div>
+                    <img class="img-fluid" src="assets/Projects/Contractual.svg" alt="Voyager-O">
+                </div>
+            </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="400" data-aos-once="true"><a class="portfolio-item links" href="https://www.contractual.ca">
                 <div class="caption">
                     <div class="caption-content">
@@ -146,7 +149,7 @@
                 <div class="caption">
                     <div class="caption-content">
                         <h2>Hackathons Canada</h2>
-                        <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration: ">2.7K</strong> Of The Brightest Minds</p>
+                        <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration:">2.7K</strong> Of The Brightest Minds</p>
                     </div>
                 </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.png" alt="deerhacks 2023 project banner">
             </a></div>
@@ -211,6 +214,149 @@
 <script src="assets/JS/pagination.js"></script>
 <script src="assets/JS/toast.js"></script>
 <script src="assets/JS/typing.js"></script>
+<script src="assets/JS/project-modals.js"></script>
+<!-- First, add modal templates for each project -->
+<!-- Add this before the closing body tag -->
+
+<!-- Modal for Voyager-O -->
+<div class="modal fade" id="voyager-modal" tabindex="-1" aria-labelledby="voyagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="voyagerModalLabel">Voyager-O</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="assets/Projects/Voyager.svg" class="img-fluid mb-3" alt="Voyager-O Screenshot">
+            </div>
+            <div class="col-md-6">
+              <h4>NASA Space Apps Global Nominee</h4>
+              <p>Voyager-O brings the stars of the universe to you. This project was recognized as a NASA Space Apps Global Nominee for its innovative approach to space exploration visualization.</p>
+              <p>Using cutting-edge technology, Voyager-O makes complex astronomical data accessible and engaging for users of all backgrounds, fostering a deeper understanding of our universe.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://voyager-o.ca" class="btn btn-primary" target="_blank">Visit Site</a>
+          <a href="https://github.com/nirek13/voyager-o" class="btn btn-secondary" target="_blank">View Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for Contractual -->
+  <div class="modal fade" id="contractual-modal" tabindex="-1" aria-labelledby="contractualModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contractualModalLabel">Contractual</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="assets/Projects/Contractual.svg" class="img-fluid mb-3" alt="Contractual Screenshot">
+            </div>
+            <div class="col-md-6">
+              <h4>Contracts Made Simple</h4>
+              <p>Contractual is a platform designed to simplify the contract creation and management process. It streamlines legal agreements to be more accessible and understandable for everyone.</p>
+              <p>With intuitive interfaces and plain language support, Contractual reduces the complexity of legal documents while maintaining their validity and enforceability.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://www.contractual.ca" class="btn btn-primary" target="_blank">Visit Site</a>
+          <a href="https://github.com/nirek13/contractual" class="btn btn-secondary" target="_blank">View Repository</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for AGEile -->
+  <div class="modal fade" id="ageile-modal" tabindex="-1" aria-labelledby="ageileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ageileModalLabel">AGEile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="assets/Projects/AGEile.png" class="img-fluid mb-3" alt="AGEile Screenshot">
+            </div>
+            <div class="col-md-6">
+              <h4>Empowering Balance, Enhancing Lives</h4>
+              <p>AGEile is a platform focused on improving quality of life through balanced approaches to health, work, and personal development.</p>
+              <p>The application provides personalized guidance and tools to help users achieve greater equilibrium in their daily routines, leading to enhanced overall wellbeing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://ageile.nirekshetty.tech" class="btn btn-primary" target="_blank">Visit Application</a>
+          <a href="https://github.com/nirek13/ageile" class="btn btn-secondary" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for Hackathons Canada -->
+  <div class="modal fade" id="hackathons-canada-modal" tabindex="-1" aria-labelledby="hackathonsCanadaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hackathonsCanadaModalLabel">Hackathons Canada</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="assets/Projects/HackathonsCanada.png" class="img-fluid mb-3" alt="Hackathons Canada Screenshot">
+            </div>
+            <div class="col-md-6">
+              <h4>Connecting Canada's Brightest Minds</h4>
+              <p>The official platform for Hackathons Canada, bringing together over 2,700 of the brightest minds across the country for collaboration and innovation.</p>
+              <p>This site serves as a central hub for hackathon information, registration, and community building throughout Canada's tech ecosystem.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://hackathonscanada.com" class="btn btn-primary" target="_blank">Visit Website</a>
+          <a href="https://github.com/nirek13/hackathons-canada" class="btn btn-secondary" target="_blank">View Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for Hack Canada -->
+  <div class="modal fade" id="hack-canada-modal" tabindex="-1" aria-labelledby="hackCanadaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hackCanadaModalLabel">Hack Canada</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="assets/Projects/HackCanada.png" class="img-fluid mb-3" alt="Hack Canada Screenshot">
+            </div>
+            <div class="col-md-6">
+              <h4>Canada's Most Anticipated Hackathon</h4>
+              <p>Hack Canada represents the nation's premier hackathon event, designed to showcase Canadian innovation and technical talent on a national stage.</p>
+              <p>The platform facilitates collaboration between participants, mentors, and sponsors, creating an environment where groundbreaking ideas can flourish.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://staging.hackcanada.org" class="btn btn-primary" target="_blank">Visit Website</a>
+          <a href="https://github.com/nirek13/hack-canada" class="btn btn-secondary" target="_blank">View Repository</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
