@@ -1,368 +1,216 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
-
-<head>
-    <script type="importmap">
-        {
-          "imports": {
-            "@google/generative-ai": "https://esm.run/@google/generative-ai"
-          }
-        }
-    </script>
-    <script src="assets/JSpt.js" ></script>
-    <script src ="assets/JS/theme.js"></script>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Nirek Shetty</title>
-    <link rel="canonical" href="https://Nirekshetty.com/">
-    <meta property="og:url" content="https://Nirekshetty.com/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:image" content="https://Nirekshetty.com/assets/img/preview.jpg">
-    <meta property="og:type" content="website">
-    <meta name="description" content="Nirek Shetty's Personal Portfolio Site">
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Nirek Shetty",
-            "url": "https://Nirekshetty.com"
-        }
-    </script>
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/favicon/180x180dark.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/16x16dark.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/32x32dark.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon/180x180dark.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/192x192dark.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon/512x512dark.png">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Poppins.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/aos.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/codeblock.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/typing.css">
-    <script>
-        document.documentElement.setAttribute('Nirekshetty-data-theme', localStorage.getItem('Nirekshetty-data-theme') === 'light' ? 'light' : 'dark');
-    </script>
-    <!---->
-    <!-- Global site tag (gtag.JS) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W47ERJHBNC"></script>
-    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-W47ERJHBNC');</script>
-
-</head>
-
-<body id="page-top" ontouchstart="">
-<div class="toast-container">
-    <div class="toast fade pulse animated hide" role="alert" id="toast-message" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header"><img class="avatar noselect" src="assets/img/avatar.webp" alt="Avatar"><strong class="me-auto fw-semibold">@Nirekshetty</strong><small>just now</small><button class="btn-close links" data-bs-dismiss="toast" aria-label="Close" type="button"></button></div>
-        <div class="toast-body" role="alert">
-            <p id="toast-message-body"></p>
-        </div>
-    </div>
-    <div class="toast fade pulse animated hide" role="alert" id="toast-welcome" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header"><img class="avatar noselect" src="assets/img/avatar.webp" alt="Avatar"><strong class="me-auto fw-semibold">@Nirekshetty</strong><small>just now</small><button class="btn-close links" data-bs-dismiss="toast" aria-label="Close" type="button"></button></div>
-        <div class="toast-body" role="alert">
-            <p id="toast-welcome-body"></p>
-        </div>
-    </div>
-</div>
-<br>
-<nav class="navbar navbar-expand-md fixed-top navbar-light" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200" data-aos-once="true">
-    <div class="container">
-        <div class="navbar-brand-container">
-            <img id="logo" class="links noselect" src="assets/img/dark.png" alt="logo" role="button">
-            <a class="navbar-brand links hidden" href="#page-top">@Nirekshetty</a>
-        </div>
-        <button data-bs-toggle="collapse" class="navbar-toggler links hidden" data-bs-target="#navbar-items" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" value="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="my-2" style="font-size: 1.8rem;">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
-                <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
-            </svg>
-        </button>
-        <div class="collapse navbar-collapse fw-semibold" id="navbar-items">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true"><a class="nav-link links" href="index.html">Home</a></li>
-                <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1100" data-aos-delay="400" data-aos-once="true"><a class="nav-link links" href="photo.html">photos</a></li>
-                <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="500" data-aos-once="true"><a class="nav-link links" href="projects">projects</a></li>
-                <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="500" data-aos-once="true"><a class="nav-link links" href="Resume.html">resume</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<section id="projects" class="content-section">
-    <div class="container">
-        <div class="content-section-heading text-center noselect">
-            <div class="caption v-middle text-center">
-                <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" class="cd-headline clip"><span class="blc"></span><span class="cd-words-wrapper"><strong class="is-visible"><span class="noselect">work.</span></strong></span></h1>
-            </div>
-        </div>
-        <div class="row g-0" id="projects-row">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true">
-                <div class="portfolio-item links" data-bs-toggle="modal" data-bs-target="#voyager-modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h2>Voyager-O.&nbsp;<span style="color: var(--bs-yellow);">NASA Space Apps Global Nominee</span></h2>
-                            <p>Bringing The Stars Of The Universe To You</p>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="assets/Projects/Contractual.svg" alt="Voyager-O">
-                </div>
-            </div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="400" data-aos-once="true"><a class="portfolio-item links" href="https://www.contractual.ca">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>Contractual</h2>
-                        <p>Contracts Made Simple</p>
-                    </div>
-                </div><img class="img-fluid" src="assets/Projects/Voyager.svg" alt="bounce project banner">
-            </a></div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="500" data-aos-once="true"><a class="portfolio-item links" href="https://ageile.nirekshetty.tech">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>AGEile</h2>
-                        <p> Empowering Balance, Enhancing Lives.</p>
-                    </div>
-                </div><img class="img-fluid" src="assets/Projects/AGEile.png" alt="alida project banner">
-            </a></div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>Hackathons Canada</h2>
-                        <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration: ">2.7K</strong> Of The Brightest Minds</p>
-                    </div>
-                </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.png" alt="deerhacks 2023 project banner">
-            </a></div>
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://staging.hackcanada.org">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>Hack Canada</h2>
-                        <p>Canada's Most Anticipated Hackathon<strong style="text-decoration: "></strong> </p>
-                    </div>
-                </div><img class="img-fluid" src="assets/Projects/HackCanada.png" alt="deerhacks 2023 project banner">
-            </a></div>
-
-            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://2023.deerhacks.ca">
-                <div class="caption">
-                    <div class="caption-content">
-                        <h2>Hackathons Canada</h2>
-                        <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration:">2.7K</strong> Of The Brightest Minds</p>
-                    </div>
-                </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.png" alt="deerhacks 2023 project banner">
-            </a></div>
-
-
-<!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="400" data-aos-once="true"><a class="portfolio-item links" href="https://mips.anthonytedja.com">-->
-<!--                <div class="caption">-->
-<!--                    <div class="caption-content">-->
-<!--                        <h2>Mips</h2>-->
-<!--                        <p>Decompiles binary code into mips architecture assembly instructions.<br></p>-->
-<!--                    </div>-->
-<!--                </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.webp" alt="mips project banner">-->
-<!--            </a></div>-->
-<!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="500" data-aos-once="true"><a class="portfolio-item links" href="https://anthonytedja.github.io/notion">-->
-<!--                <div class="caption">-->
-<!--                    <div class="caption-content">-->
-<!--                        <h2>Notion</h2>-->
-<!--                        <p>A library of reversible widgets optimized for Notion.so pages.<br></p>-->
-<!--                    </div>-->
-<!--                </div><img class="img-fluid" src="assets/img/projects/notion.webp" alt="notion project banner">-->
-<!--            </a></div>-->
-<!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true"><a class="portfolio-item links" href="https://restify.anthonytedja.com">-->
-<!--                <div class="caption">-->
-<!--                    <div class="caption-content">-->
-<!--                        <h2>Restify</h2>-->
-<!--                        <p>Your go to food social media for all foodies and restaurant owners.<br></p>-->
-<!--                    </div>-->
-<!--                </div><img class="img-fluid" src="assets/img/projects/restify.webp" alt="restify project banner">-->
-<!--            </a></div>-->
-<!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://shunt.mcss.club">-->
-<!--                <div class="caption">-->
-<!--                    <div class="caption-content">-->
-<!--                        <h2>Scavenger</h2>-->
-<!--                        <p>Landing page for MCSS Club's 2022 Scavenger Hunt challenges.<br></p>-->
-<!--                    </div>-->
-<!--                </div><img class="img-fluid" src="assets/img/projects/scavenger.webp" alt="scavenger project banner">-->
-<!--            </a></div>-->
-<!--            <div class="col d-flex justify-content-center">-->
-
-            </div>
-            <div class="col d-flex justify-content-center">
-                <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="800" data-aos-once="true"><button class="btn btn-primary links" id="more-projects" type="button">more</button></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-            <footer>
-    <div class="container p-2 p-sm-3 p-lg-4"><a class="footer-body links small noselect" href="https://github.com/nirek13/me">Designed &amp; Built by Nirek Shetty<br><i class="fa fa-star-o me-2"></i><span id="github-stars">0</span><i class="fa fa-github-alt mx-3"></i><i class="fa fa-code-fork me-2"></i><span id="github-forks">0</span></a></div><a class="scroll-to-top links hidden" href="#page-top"><i class="fa fa-angle-up"></i></a>
-</footer>
-<script src="assets/JS/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/JS/aos.min.js"></script>
-<script src="assets/JS/bs-init.js"></script>
-<script src="assets/JS/navbar.js"></script>
-<script src="assets/JS/ajax.js"></script>
-<script src="assets/JS/catgif.js"></script>
-<script src="assets/JS/clicks.js"></script>
-<script src="assets/JS/images.js"></script>
-<script src="assets/JS/mode.js"></script>
-<script src="assets/JS/mousefollow.js"></script>
-<script src="assets/JS/pagination.js"></script>
-<script src="assets/JS/toast.js"></script>
-<script src="assets/JS/typing.js"></script>
-<script src="assets/JS/project-modals.js"></script>
-<!-- First, add modal templates for each project -->
-<!-- Add this before the closing body tag -->
-
-<!-- Modal for Voyager-O -->
-<div class="modal fade" id="voyager-modal" tabindex="-1" aria-labelledby="voyagerModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="voyagerModalLabel">Voyager-O</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="assets/Projects/Voyager.svg" class="img-fluid mb-3" alt="Voyager-O Screenshot">
-            </div>
-            <div class="col-md-6">
-              <h4>NASA Space Apps Global Nominee</h4>
-              <p>Voyager-O brings the stars of the universe to you. This project was recognized as a NASA Space Apps Global Nominee for its innovative approach to space exploration visualization.</p>
-              <p>Using cutting-edge technology, Voyager-O makes complex astronomical data accessible and engaging for users of all backgrounds, fostering a deeper understanding of our universe.</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="https://voyager-o.ca" class="btn btn-primary" target="_blank">Visit Site</a>
-          <a href="https://github.com/nirek13/voyager-o" class="btn btn-secondary" target="_blank">View Code</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal for Contractual -->
-  <div class="modal fade" id="contractual-modal" tabindex="-1" aria-labelledby="contractualModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="contractualModalLabel">Contractual</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="assets/Projects/Contractual.svg" class="img-fluid mb-3" alt="Contractual Screenshot">
-            </div>
-            <div class="col-md-6">
-              <h4>Contracts Made Simple</h4>
-              <p>Contractual is a platform designed to simplify the contract creation and management process. It streamlines legal agreements to be more accessible and understandable for everyone.</p>
-              <p>With intuitive interfaces and plain language support, Contractual reduces the complexity of legal documents while maintaining their validity and enforceability.</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="https://www.contractual.ca" class="btn btn-primary" target="_blank">Visit Site</a>
-          <a href="https://github.com/nirek13/contractual" class="btn btn-secondary" target="_blank">View Repository</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal for AGEile -->
-  <div class="modal fade" id="ageile-modal" tabindex="-1" aria-labelledby="ageileModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ageileModalLabel">AGEile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="assets/Projects/AGEile.png" class="img-fluid mb-3" alt="AGEile Screenshot">
-            </div>
-            <div class="col-md-6">
-              <h4>Empowering Balance, Enhancing Lives</h4>
-              <p>AGEile is a platform focused on improving quality of life through balanced approaches to health, work, and personal development.</p>
-              <p>The application provides personalized guidance and tools to help users achieve greater equilibrium in their daily routines, leading to enhanced overall wellbeing.</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="https://ageile.nirekshetty.tech" class="btn btn-primary" target="_blank">Visit Application</a>
-          <a href="https://github.com/nirek13/ageile" class="btn btn-secondary" target="_blank">View Project</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal for Hackathons Canada -->
-  <div class="modal fade" id="hackathons-canada-modal" tabindex="-1" aria-labelledby="hackathonsCanadaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="hackathonsCanadaModalLabel">Hackathons Canada</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="assets/Projects/HackathonsCanada.png" class="img-fluid mb-3" alt="Hackathons Canada Screenshot">
-            </div>
-            <div class="col-md-6">
-              <h4>Connecting Canada's Brightest Minds</h4>
-              <p>The official platform for Hackathons Canada, bringing together over 2,700 of the brightest minds across the country for collaboration and innovation.</p>
-              <p>This site serves as a central hub for hackathon information, registration, and community building throughout Canada's tech ecosystem.</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="https://hackathonscanada.com" class="btn btn-primary" target="_blank">Visit Website</a>
-          <a href="https://github.com/nirek13/hackathons-canada" class="btn btn-secondary" target="_blank">View Source</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Modal for Hack Canada -->
-  <div class="modal fade" id="hack-canada-modal" tabindex="-1" aria-labelledby="hackCanadaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="hackCanadaModalLabel">Hack Canada</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="assets/Projects/HackCanada.png" class="img-fluid mb-3" alt="Hack Canada Screenshot">
-            </div>
-            <div class="col-md-6">
-              <h4>Canada's Most Anticipated Hackathon</h4>
-              <p>Hack Canada represents the nation's premier hackathon event, designed to showcase Canadian innovation and technical talent on a national stage.</p>
-              <p>The platform facilitates collaboration between participants, mentors, and sponsors, creating an environment where groundbreaking ideas can flourish.</p>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <a href="https://staging.hackcanada.org" class="btn btn-primary" target="_blank">Visit Website</a>
-          <a href="https://github.com/nirek13/hack-canada" class="btn btn-secondary" target="_blank">View Repository</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
-</html>
-
-
-
-
-
-
+ <html data-bs-theme="light" lang="en">
+ 
+ <head>
+     <script type="importmap">
+         {
+           "imports": {
+             "@google/generative-ai": "https://esm.run/@google/generative-ai"
+           }
+         }
+     </script>
+     <script src="assets/JSpt.js" ></script>
+     <script src ="assets/JS/theme.js"></script>
+     <meta charset="utf-8">
+     <link rel="preconnect" href="https://www.google-analytics.com">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+     <title>Nirek Shetty</title>
+     <link rel="canonical" href="https://Nirekshetty.com/">
+     <meta property="og:url" content="https://Nirekshetty.com/">
+     <meta name="twitter:card" content="summary_large_image">
+     <meta property="og:image" content="https://Nirekshetty.com/assets/img/preview.jpg">
+     <meta property="og:type" content="website">
+     <meta name="description" content="Nirek Shetty's Personal Portfolio Site">
+     <script type="application/ld+json">
+         {
+             "@context": "http://schema.org",
+             "@type": "WebSite",
+             "name": "Nirek Shetty",
+             "url": "https://Nirekshetty.com"
+         }
+     </script>
+     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/img/favicon/180x180dark.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/16x16dark.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/32x32dark.png">
+     <link rel="icon" type="image/png" sizes="180x180" href="assets/img/favicon/180x180dark.png">
+     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/192x192dark.png">
+     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon/512x512dark.png">
+     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+     <link rel="stylesheet" href="assets/css/Poppins.css">
+     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+     <link rel="stylesheet" href="assets/css/aos.min.css">
+     <link rel="stylesheet" href="assets/css/animate.min.css">
+     <link rel="stylesheet" href="assets/css/codeblock.css">
+     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel="stylesheet" href="assets/css/typing.css">
+     <script>
+         document.documentElement.setAttribute('Nirekshetty-data-theme', localStorage.getItem('Nirekshetty-data-theme') === 'light' ? 'light' : 'dark');
+     </script>
+     <!---->
+     <!-- Global site tag (gtag.JS) - Google Analytics -->
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W47ERJHBNC"></script>
+     <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-W47ERJHBNC');</script>
+ 
+ </head>
+ 
+ <body id="page-top" ontouchstart="">
+ <div class="toast-container">
+     <div class="toast fade pulse animated hide" role="alert" id="toast-message" aria-live="assertive" aria-atomic="true">
+         <div class="toast-header"><img class="avatar noselect" src="assets/img/avatar.webp" alt="Avatar"><strong class="me-auto fw-semibold">@Nirekshetty</strong><small>just now</small><button class="btn-close links" data-bs-dismiss="toast" aria-label="Close" type="button"></button></div>
+         <div class="toast-body" role="alert">
+             <p id="toast-message-body"></p>
+         </div>
+     </div>
+     <div class="toast fade pulse animated hide" role="alert" id="toast-welcome" aria-live="assertive" aria-atomic="true">
+         <div class="toast-header"><img class="avatar noselect" src="assets/img/avatar.webp" alt="Avatar"><strong class="me-auto fw-semibold">@Nirekshetty</strong><small>just now</small><button class="btn-close links" data-bs-dismiss="toast" aria-label="Close" type="button"></button></div>
+         <div class="toast-body" role="alert">
+             <p id="toast-welcome-body"></p>
+         </div>
+     </div>
+ </div>
+ <br>
+ <nav class="navbar navbar-expand-md fixed-top navbar-light" data-aos="fade-down" data-aos-duration="600" data-aos-delay="200" data-aos-once="true">
+     <div class="container">
+         <div class="navbar-brand-container">
+             <img id="logo" class="links noselect" src="assets/img/dark.png" alt="logo" role="button">
+             <a class="navbar-brand links hidden" href="#page-top">@Nirekshetty</a>
+         </div>
+         <button data-bs-toggle="collapse" class="navbar-toggler links hidden" data-bs-target="#navbar-items" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" value="Menu">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="my-2" style="font-size: 1.8rem;">
+                 <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                 <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
+             </svg>
+         </button>
+         <div class="collapse navbar-collapse fw-semibold" id="navbar-items">
+             <ul class="navbar-nav ms-auto">
+                 <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true"><a class="nav-link links" href="index.html">Home</a></li>
+                 <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1100" data-aos-delay="400" data-aos-once="true"><a class="nav-link links" href="photo.html">photos</a></li>
+                 <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="500" data-aos-once="true"><a class="nav-link links" href="projects">projects</a></li>
+                 <li class="nav-item nav-link" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="500" data-aos-once="true"><a class="nav-link links" href="Resume.html">resume</a></li>
+             </ul>
+         </div>
+     </div>
+ </nav>
+ 
+ <section id="projects" class="content-section">
+     <div class="container">
+         <div class="content-section-heading text-center noselect">
+             <div class="caption v-middle text-center">
+                 <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" class="cd-headline clip"><span class="blc"></span><span class="cd-words-wrapper"><strong class="is-visible"><span class="noselect">work.</span></strong></span></h1>
+             </div>
+         </div>
+         <div class="row g-0" id="projects-row">
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true"><a class="portfolio-item links" href="https://voyager-o.ca">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>Voyager-O.&nbsp;<span style="color: var(--bs-yellow);">NASA Space Apps Global Nominee</span></h2>
+                         <p>Bringing The Stars Of The Universe To You</p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/Contractual.svg" alt="Voyager-O">
+             </a></div>
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="400" data-aos-once="true"><a class="portfolio-item links" href="https://www.contractual.ca">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>Contractual</h2>
+                         <p>Contracts Made Simple</p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/Voyager.svg" alt="bounce project banner">
+             </a></div>
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="500" data-aos-once="true"><a class="portfolio-item links" href="https://www.youtube.com/watch?v=R34Me_F1nYs">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>AGEile</h2>
+                         <p> Empowering Balance, Enhancing Lives.</p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/Summa.png" alt="alida project banner">
+             </a></div>
+ 
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>Hackathons Canada</h2>
+                         <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration: ">2.7K</strong> Of The Brightest Minds</p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.png" alt="deerhacks 2023 project banner">
+             </a></div>
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://staging.hackcanada.org">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>Hack Canada</h2>
+                         <p>Canada's Most Anticipated Hackathon<strong style="text-decoration: "></strong> </p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/HackCanada.png" alt="deerhacks 2023 project banner">
+             </a></div>
+ 
+             <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://2023.deerhacks.ca">
+                 <div class="caption">
+                     <div class="caption-content">
+                         <h2>Hackathons Canada</h2>
+                         <p>The Official Website Of Hackathons Canada Bringing together <strong style="text-decoration: ">2.7K</strong> Of The Brightest Minds</p>
+                     </div>
+                 </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.png" alt="deerhacks 2023 project banner">
+             </a></div>
+ 
+ 
+ <!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="400" data-aos-once="true"><a class="portfolio-item links" href="https://mips.anthonytedja.com">-->
+ <!--                <div class="caption">-->
+ <!--                    <div class="caption-content">-->
+ <!--                        <h2>Mips</h2>-->
+ <!--                        <p>Decompiles binary code into mips architecture assembly instructions.<br></p>-->
+ <!--                    </div>-->
+ <!--                </div><img class="img-fluid" src="assets/Projects/HackathonsCanada.webp" alt="mips project banner">-->
+ <!--            </a></div>-->
+ <!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="500" data-aos-once="true"><a class="portfolio-item links" href="https://anthonytedja.github.io/notion">-->
+ <!--                <div class="caption">-->
+ <!--                    <div class="caption-content">-->
+ <!--                        <h2>Notion</h2>-->
+ <!--                        <p>A library of reversible widgets optimized for Notion.so pages.<br></p>-->
+ <!--                    </div>-->
+ <!--                </div><img class="img-fluid" src="assets/img/projects/notion.webp" alt="notion project banner">-->
+ <!--            </a></div>-->
+ <!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="600" data-aos-once="true"><a class="portfolio-item links" href="https://restify.anthonytedja.com">-->
+ <!--                <div class="caption">-->
+ <!--                    <div class="caption-content">-->
+ <!--                        <h2>Restify</h2>-->
+ <!--                        <p>Your go to food social media for all foodies and restaurant owners.<br></p>-->
+ <!--                    </div>-->
+ <!--                </div><img class="img-fluid" src="assets/img/projects/restify.webp" alt="restify project banner">-->
+ <!--            </a></div>-->
+ <!--            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="700" data-aos-once="true"><a class="portfolio-item links" href="https://shunt.mcss.club">-->
+ <!--                <div class="caption">-->
+ <!--                    <div class="caption-content">-->
+ <!--                        <h2>Scavenger</h2>-->
+ <!--                        <p>Landing page for MCSS Club's 2022 Scavenger Hunt challenges.<br></p>-->
+ <!--                    </div>-->
+ <!--                </div><img class="img-fluid" src="assets/img/projects/scavenger.webp" alt="scavenger project banner">-->
+ <!--            </a></div>-->
+ <!--            <div class="col d-flex justify-content-center">-->
+ 
+             </div>
+             <div class="col d-flex justify-content-center">
+                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-20" data-aos-delay="800" data-aos-once="true"><button class="btn btn-primary links" id="more-projects" type="button">more</button></div>
+             </div>
+         </div>
+     </div>
+ </section>
+ 
+             <footer>
+     <div class="container p-2 p-sm-3 p-lg-4"><a class="footer-body links small noselect" href="https://github.com/nirek13/me">Designed &amp; Built by Nirek Shetty<br><i class="fa fa-star-o me-2"></i><span id="github-stars">0</span><i class="fa fa-github-alt mx-3"></i><i class="fa fa-code-fork me-2"></i><span id="github-forks">0</span></a></div><a class="scroll-to-top links hidden" href="#page-top"><i class="fa fa-angle-up"></i></a>
+ </footer>
+ <script src="assets/JS/jquery.min.js"></script>
+ <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+ <script src="assets/JS/aos.min.js"></script>
+ <script src="assets/JS/bs-init.js"></script>
+ <script src="assets/JS/navbar.js"></script>
+ <script src="assets/JS/ajax.js"></script>
+ <script src="assets/JS/catgif.js"></script>
+ <script src="assets/JS/clicks.js"></script>
+ <script src="assets/JS/images.js"></script>
+ <script src="assets/JS/mode.js"></script>
+ <script src="assets/JS/mousefollow.js"></script>
+ <script src="assets/JS/pagination.js"></script>
+ <script src="assets/JS/toast.js"></script>
+ <script src="assets/JS/typing.js"></script>
+ </body>
+ 
+ </html>

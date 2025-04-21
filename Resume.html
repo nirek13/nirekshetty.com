@@ -12,6 +12,7 @@
             width: 90%;
             max-width: 1200px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
         }
 
         .pdf-controls {
@@ -62,6 +63,31 @@
             height: auto;
             border-radius: 5px;
         }
+        
+        /* Add overlay for clickable links */
+        #pdf-links-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            pointer-events: none; /* Let events pass through by default */
+        }
+        
+        /* Style for highlighted link areas */
+        .pdf-link-area {
+            position: absolute;
+            background-color: rgba(0, 123, 255, 0.1);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            cursor: pointer;
+            pointer-events: auto; /* Make link areas clickable */
+            transition: background-color 0.2s;
+        }
+        
+        .pdf-link-area:hover {
+            background-color: rgba(0, 123, 255, 0.2);
+        }
 
         .resume-title {
             text-align: center;
@@ -71,16 +97,18 @@
             margin-bottom: 20px;
             color: #0d6efd;
         }
-    </style>
-    <script type="importmap">
-        {
-          "imports": {
-            "@google/generative-ai": "https://esm.run/@google/generative-ai"
-          }
+        
+        /* Dark mode adjustments */
+        [data-bs-theme="dark"] .pdf-controls {
+            background: #343a40;
+            color: #f8f9fa;
         }
-    </script>
-    <script src="assets/JSpt.js"></script>
-    <script src="assets/JS/theme.js"></script>
+        
+        [data-bs-theme="dark"] .pdf-link-area {
+            background-color: rgba(13, 110, 253, 0.15);
+            border: 1px solid rgba(13, 110, 253, 0.4);
+        }
+    </style>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -115,6 +143,7 @@
     <link rel="stylesheet" href="assets/css/typing.css">
     <script>
         document.documentElement.setAttribute('Nirekshetty-data-theme', localStorage.getItem('Nirekshetty-data-theme') === 'light' ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('Nirekshetty-data-theme') === 'light' ? 'light' : 'dark');
     </script>
     <!-- Global site tag (gtag.JS) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W47ERJHBNC"></script>
@@ -145,7 +174,6 @@
         </div>
         <button data-bs-toggle="collapse" class="navbar-toggler links hidden" data-bs-target="#navbar-items" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation" value="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="my-2" style="font-size: 1.8rem;">
-                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
                 <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path>
             </svg>
         </button>
@@ -162,26 +190,24 @@
 
 <main>
     <div class="container">
-    <div class="content-section-heading text-center noselect">
-     
+        <div class="content-section-heading text-center noselect">
             <br>
             <br>
             <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true" class="cd-headline clip"><span class="blc"></span><span class="cd-words-wrapper" style="margin-top: 1em"><strong class="is-visible"><span class="noselect">Resume.</span></strong></span></h1>
-   
+        </div>
+        
+        <div class="pdf-container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true">
+            <canvas id="pdf-render"></canvas>
+            <div id="pdf-links-overlay"></div>
+        </div>
+        
+        <div class="pdf-controls" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-once="true">
+            <button id="prev-page">Previous</button>
+            <span id="page-info">Page: <span id="page-num">1</span> / <span id="page-count">0</span></span>
+            <button id="next-page">Next</button>
+            <a id="download-pdf" href="Resume.pdf" download>Download PDF</a>
+        </div>
     </div>
-
-    
-    <div class="pdf-container" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" data-aos-once="true">
-        <canvas id="pdf-render"></canvas>
-    </div>
-    
-    <div class="pdf-controls" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-once="true">
-        <button id="prev-page">Previous</button>
-        <span id="page-info">Page: <span id="page-num">1</span> / <span id="page-count">0</span></span>
-        <button id="next-page">Next</button>
-        <a id="download-pdf" href="Resume.pdf" download>Download PDF</a>
-    </div>
-</div>
 </main>
 
 <footer>
@@ -193,39 +219,95 @@
             <i class="fa fa-code-fork me-2"></i><span id="github-forks">0</span>
         </a>
     </div>
-    </div>
     <a class="scroll-to-top links hidden" href="#page-top"><i class="fa fa-angle-up"></i></a>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.81/pdf.min.js"></script>
 <script>
-    const url = 'Resume.pdf'; // Make sure this file exists in the same directory
-
+    const url = 'Resume.pdf';
+    
     let pdfDoc = null,
         pageNum = 1,
         pageIsRendering = false,
-        pageNumIsPending = null;
+        pageNumIsPending = null,
+        currentScale = 1.5,
+        currentPage = null,
+        currentPageLinks = [];
 
-    const scale = 1.5, // Adjusted scale for better visibility
-        canvas = document.getElementById('pdf-render'),
-        ctx = canvas.getContext('2d');
+    const canvas = document.getElementById('pdf-render'),
+          ctx = canvas.getContext('2d'),
+          linksOverlay = document.getElementById('pdf-links-overlay');
 
-    // Specify workerSrc
+    // Specify PDF.js worker source
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.81/pdf.worker.min.js';
 
-    // Function to adjust canvas size based on viewport
+    // Calculate proper scaling for viewport
     function resizeCanvas(viewport) {
         const container = document.querySelector('.pdf-container');
         const containerWidth = container.clientWidth;
         
-        // Calculate the scale needed to fit the PDF within the container
+        // Calculate scale to fit the PDF width to container
         const scaleFactor = containerWidth / viewport.width;
         
         // Set canvas dimensions
         canvas.height = viewport.height * scaleFactor;
         canvas.width = viewport.width * scaleFactor;
         
+        // Update links overlay size
+        linksOverlay.style.width = canvas.width + 'px';
+        linksOverlay.style.height = canvas.height + 'px';
+        
         return scaleFactor;
+    }
+
+    // Extract and handle links in the PDF
+    function setupPdfLinks(page, scaleFactor) {
+        // Clear previous links
+        linksOverlay.innerHTML = '';
+        currentPageLinks = [];
+        
+        // Get annotations (which include links)
+        page.getAnnotations().then(annotations => {
+            annotations.forEach(annotation => {
+                if (annotation.subtype === 'Link' && annotation.url) {
+                    const rect = annotation.rect;
+                    const [x1, y1, x2, y2] = rect;
+                    
+                    // Convert PDF coordinates to canvas coordinates
+                    const adjustedViewport = page.getViewport({ scale: currentScale * scaleFactor });
+                    const transform = adjustedViewport.transform;
+                    
+                    // Create link element
+                    const linkElement = document.createElement('a');
+                    linkElement.className = 'pdf-link-area';
+                    linkElement.href = annotation.url;
+                    linkElement.target = '_blank'; // Open links in new tab
+                    linkElement.title = annotation.url;
+                    
+                    // Position the link
+                    const width = (x2 - x1) * transform[0] * scaleFactor;
+                    const height = (y2 - y1) * transform[3] * scaleFactor;
+                    const left = x1 * transform[0] * scaleFactor;
+                    // PDF coordinates start from bottom, need to invert for DOM
+                    const top = adjustedViewport.height - y2 * transform[3] * scaleFactor;
+                    
+                    linkElement.style.width = width + 'px';
+                    linkElement.style.height = height + 'px';
+                    linkElement.style.left = left + 'px';
+                    linkElement.style.top = top + 'px';
+                    
+                    // For debugging only - show link areas
+                    // linkElement.innerText = annotation.url;
+                    
+                    // Add to overlay
+                    linksOverlay.appendChild(linkElement);
+                    currentPageLinks.push({
+                        element: linkElement,
+                        url: annotation.url
+                    });
+                }
+            });
+        });
     }
 
     // Render the page
@@ -234,20 +316,26 @@
 
         // Get page
         pdfDoc.getPage(num).then(page => {
-            const viewport = page.getViewport({ scale });
+            currentPage = page;
+            const viewport = page.getViewport({ scale: currentScale });
             
             // Resize canvas to fit container
             const scaleFactor = resizeCanvas(viewport);
             
-            const adjustedViewport = page.getViewport({ scale: scale * scaleFactor });
+            const adjustedViewport = page.getViewport({ scale: currentScale * scaleFactor });
 
             const renderContext = {
                 canvasContext: ctx,
                 viewport: adjustedViewport
             };
 
-            page.render(renderContext).promise.then(() => {
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(() => {
                 pageIsRendering = false;
+                
+                // Extract and setup links
+                setupPdfLinks(page, scaleFactor);
 
                 if (pageNumIsPending !== null) {
                     renderPage(pageNumIsPending);
@@ -287,6 +375,19 @@
         queueRenderPage(pageNum);
     };
 
+    // Zoom functions
+    const zoomIn = () => {
+        currentScale += 0.25;
+        queueRenderPage(pageNum);
+    };
+
+    const zoomOut = () => {
+        if (currentScale > 0.5) {
+            currentScale -= 0.25;
+            queueRenderPage(pageNum);
+        }
+    };
+
     // Get document
     pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
         pdfDoc = pdfDoc_;
@@ -295,18 +396,43 @@
 
         renderPage(pageNum); // Initial page rendering
     }).catch(err => {
-        // Handle errors
-        console.error(err);
+        console.error('Error loading PDF:', err);
         alert('Error loading PDF: ' + err.message);
     });
 
     // Handle window resize to adjust PDF display
     window.addEventListener('resize', () => {
-        if (pdfDoc) {
+        if (pdfDoc && currentPage) {
             renderPage(pageNum);
         }
     });
 
+    // Add keyboard controls
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            showNextPage();
+        } else if (e.key === 'ArrowLeft') {
+            showPrevPage();
+        } else if (e.key === '+' || e.key === '=') {
+            zoomIn();
+        } else if (e.key === '-') {
+            zoomOut();
+        }
+    });
+
+    // Setup zoom with mouse wheel + Ctrl key
+    canvas.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault(); // Prevent page scroll
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        }
+    });
+
+    // Register event listeners for navigation buttons
     document.getElementById('prev-page').addEventListener('click', showPrevPage);
     document.getElementById('next-page').addEventListener('click', showNextPage);
 </script>
